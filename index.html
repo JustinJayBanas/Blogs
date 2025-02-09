@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>My Personal Blog</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Personal Blog</h1>
+    </header>
+
+    <div class="container">
+        <div class="month-nav">
+            <button class="month-btn active" onclick="showMonth('february')">February</button>
+            <button class="month-btn" onclick="showMonth('march')">March</button>
+            <button class="month-btn" onclick="showMonth('april')">April</button>
+            <button class="month-btn" onclick="showMonth('may')">May</button>
+        </div>
+
+        <div id="february" class="blog-content active">
+            <div class="blog-post">
+                <div class="gallery">
+                    <div class="gallery-container">
+                        <img src="../images/image.jpg" alt="Winter landscape" class="active">
+                        <img src="../images/image2.jpg" alt="Snow covered trees">
+                        <img src="../images/image3.jpg" alt="Winter sunset">
+                        <img src="../images/image4.jpg" alt="Winter sunset">
+                    </div>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
+                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h2 class="blog-title">Week 1 of February</h2>
+                    <p class="blog-text">Day 1:
+                        Our internship began with an orientation led by the dean. Ate Ella guided us to our assigned department, BU-USDS, where we were introduced to our mentor. Our team consists of two IT students and one CBEM student. During the orientation, our mentor outlined our tasks, which include fixing their existing system and adding new functionalities.
+                        <br>
+                        Day 2:
+                        We helped with the renovation of tables and document organization inside the office. After that, we started working on their spreadsheet monitoring system, identifying areas that needed improvement.
+                        <br>
+                        Day 3:
+                        A power outage occurred, but Sir Ronaldo assigned me clerical tasks. I was responsible for checking documents to ensure they were complete and properly organized.</p>
+                </div>
+            </div>
+
+            <div class="blog-post">
+                <div class="gallery">
+                    <div class="gallery-container">
+                        <img src="/api/placeholder/800/400" alt="Office workspace" class="active">
+                        <img src="/api/placeholder/800/400" alt="Project planning">
+                    </div>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
+                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h2 class="blog-title">Week 2 of February</h2>
+                    <p class="blog-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="march" class="blog-content">
+            <div class="blog-post">
+                <div class="gallery">
+                    <div class="gallery-container">
+                        <img src=".jpg" class="active">
+                        <img src="/api/placeholder/800/400" alt="Garden prep">
+                    </div>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
+                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h2 class="blog-title">Week 1 of March</h2>
+                    <p class="blog-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="april" class="blog-content">
+            <div class="blog-post">
+                <div class="gallery">
+                    <div class="gallery-container">
+                        <img src="/api/placeholder/800/400" alt="Spring garden" class="active">
+                        <img src="/api/placeholder/800/400" alt="Blooming flowers">
+                    </div>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
+                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h2 class="blog-title">Week 1 of April</h2>
+                    <p class="blog-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="may" class="blog-content">
+            <div class="blog-post">
+                <div class="gallery">
+                    <div class="gallery-container">
+                        <img src="/api/placeholder/800/400" alt="Outdoor activities" class="active">
+                        <img src="/api/placeholder/800/400" alt="Hiking trail">
+                    </div>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
+                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h2 class="blog-title">Week 1 of May</h2>
+                    <p class="blog-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by Justin Jay Q. Bañas</p>
+    </footer>
+
+    <script>
+        function showMonth(month) {
+            // Hide all content
+            document.querySelectorAll('.blog-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected month
+            document.getElementById(month).classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.month-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function nextImage(btn) {
+            const gallery = btn.closest('.gallery');
+            const images = gallery.querySelectorAll('img');
+            const dots = gallery.querySelectorAll('.dot');
+            let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            
+            images[activeIndex].classList.remove('active');
+            dots[activeIndex].classList.remove('active');
+            
+            activeIndex = (activeIndex + 1) % images.length;
+            
+            images[activeIndex].classList.add('active');
+            dots[activeIndex].classList.add('active');
+        }
+
+        function prevImage(btn) {
+            const gallery = btn.closest('.gallery');
+            const images = gallery.querySelectorAll('img');
+            const dots = gallery.querySelectorAll('.dot');
+            let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            
+            images[activeIndex].classList.remove('active');
+            dots[activeIndex].classList.remove('active');
+            
+            activeIndex = (activeIndex - 1 + images.length) % images.length;
+            
+            images[activeIndex].classList.add('active');
+            dots[activeIndex].classList.add('active');
+        }
+
+        // Add click handlers to dots
+        document.querySelectorAll('.gallery-dots').forEach(dotContainer => {
+            const dots = dotContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const gallery = dot.closest('.gallery');
+                    const images = gallery.querySelectorAll('img');
+                    const allDots = gallery.querySelectorAll('.dot');
+                    
+                    images.forEach(img => img.classList.remove('active'));
+                    allDots.forEach(d => d.classList.remove('active'));
+                    
+                    images[index].classList.add('active');
+                    dot.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
