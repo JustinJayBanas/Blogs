@@ -3,400 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>My Personal Blog</title>
-    <style>
-       
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
-<body>
-    <header>
-        <h1>My Personal Blog</h1>
+<body class="bg-gray-50 font-sans antialiased">
+    <header class="bg-blue-700 text-white text-center py-8 shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">My Personal Blog</h1>
     </header>
 
-    <div class="container">
-        <div class="month-nav">
-            <button class="month-btn active" onclick="showMonth('february')">February</button>
-            <button class="month-btn" onclick="showMonth('march')">March</button>
-            <button class="month-btn" onclick="showMonth('april')">April</button>
-            <button class="month-btn" onclick="showMonth('may')">May</button>
-        </div>
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <nav class="month-nav sticky top-0 z-10 flex justify-center space-x-3 md:space-x-6 mb-10 bg-white py-4 rounded-lg shadow-md">
+            <button class="month-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium active" onclick="showMonth('february')" aria-label="Show February posts">February</button>
+            <button class="month-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium" onclick="showMonth('march')" aria-label="Show March posts">March</button>
+            <button class="month-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium" onclick="showMonth('april')" aria-label="Show April posts">April</button>
+            <button class="month-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium" onclick="showMonth('may')" aria-label="Show May posts">May</button>
+        </nav>
 
-        <div id="february"10px auto; background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
-            <h2 style="color: #333;">Formatted Code Block</h2>
-            <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto;">
-                <code>
-                    ```html
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>Sample Page</title>
-                    </head>
-                    <body>
-                        <h1>Welcome to My Page</h1>
-                        <p>This is a sample paragraph.</p>
-                    </body>
-                    </html>
-                    ```
-                </code>
-            </pre>
-        </div>
         <div id="february" class="blog-content active">
-            <div class="blog-post">
-                <div class="gallery">
+            <div class="bg-white p-8 rounded-lg shadow-md mb-10">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Formatted Code Block</h2>
+                <pre class="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                    <code>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Page</title>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>This is a sample paragraph.</p>
+</body>
+</html>
+                    </code>
+                </pre>
+            </div>
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="images/image.jpg" alt="Winter landscape" class="active">
-                        <img src="images/image2.jpg" alt="Snow covered trees">
-                        <img src="images/image3.jpg" alt="Winter sunset">
-                        <img src="images/image4.jpg" alt="Winter sunset">
+                        <img src="https://via.placeholder.com/800x400?text=Winter+Landscape" alt="Winter landscape" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Snow+Covered+Trees" alt="Snow covered trees" class="w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Winter+Sunset" alt="Winter sunset" class="w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Winter+Sunset+2" alt="Winter sunset" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 3"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 4"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 1 of February</h2>
-                    <p class="blog-text">Day 1:
-                        Our internship began with an orientation led by the dean. Ate Ella guided us to our assigned department, BU-USDS, where we met our mentor. Our team has two IT students and one CBEM student. Our mentor explained our tasks, which include fixing their system and adding new features.
-                        <br>
-                        Day 2:
-                        We helped renovate tables and organize documents in the office. After that, we started checking the spreadsheet monitoring system to find what needed fixing.
-                        <br>
-                        Day 3:
-                        There was a power outage, so Sir Ronaldo gave me clerical work. I checked documents to make sure they were complete and organized.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 1 of February</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        <strong>Day 1:</strong> Our internship began with an orientation led by the dean. Ate Ella guided us to our assigned department, BU-USDS, where we met our mentor. Our team has two IT students and one CBEM student. Our mentor explained our tasks, which include fixing their system and adding new features.<br>
+                        <strong>Day 2:</strong> We helped renovate tables and organize documents in the office. After that, we started checking the spreadsheet monitoring system to find what needed fixing.<br>
+                        <strong>Day 3:</strong> There was a power outage, so Sir Ronaldo gave me clerical work. I checked documents to ensure they were complete and organized.
+                    </p>
                 </div>
             </div>
 
-            <div class="blog-post">
-                <div class="gallery">
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Office workspace" class="active">
-                        <img src="/api/placeholder/800/400" alt="Project planning">
+                        <img src="https://via.placeholder.com/800x400?text=Office+Workspace" alt="Office workspace" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Project+Planning" alt="Project planning" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 2 of February</h2>
-                    <p class="blog-text">We worked on the spreadsheet monitoring system and used Google Apps Script to fix errors and enhance its performance. The BU-USDS team tested it and reported that it was faster and had fewer mistakes. Another task assigned to us was to thoroughly check documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and organized.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 2 of February</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        We worked on the spreadsheet monitoring system and used Google Apps Script to fix errors and enhance its performance. The BU-USDS team tested it and reported that it was faster and had fewer mistakes. Another task assigned to us was to thoroughly check documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and organized.
+                    </p>
                 </div>
             </div>
 
-            <div class="blog-post">
-                <div class="gallery">
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Team meeting" class="active">
-                        <img src="/api/placeholder/800/400" alt="System testing">
+                        <img src="https://via.placeholder.com/800x400?text=Team+Meeting" alt="Team meeting" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=System+Testing" alt="System testing" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 3 of February</h2>
-                    <p class="blog-text">This week, we decided to tackle the dashboard of the spreadsheet monitoring system and used Google Apps Script to optimize its performance. Fixing the dashboard itself was challenging, as it’s an outdated system with some errors, and we’re uncertain about how previous OJT students designed it. As part of our weekly responsibilities, we thoroughly checked documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and well-organized.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 3 of February</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, we decided to tackle the dashboard of the spreadsheet monitoring system and used Google Apps Script to optimize its performance. Fixing the dashboard itself was challenging, as it’s an outdated system with some errors, and we’re uncertain about how previous OJT students designed it. As part of our weekly responsibilities, we thoroughly checked documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and well-organized.
+                    </p>
                 </div>
             </div>
 
-            <div class="blog-post">
-                <div class="gallery">
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Presentation prep" class="active">
-                        <img src="/api/placeholder/800/400" alt="Office collaboration">
+                        <img src="https://via.placeholder.com/800x400?text=Presentation+Prep" alt="Presentation prep" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Office+Collaboration" alt="Office collaboration" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 4 of February</h2>
-                    <p class="blog-text">This week, we made a bold decision to move away from the spreadsheet and began building a web-based monitoring system, a direction our mentor fully supported as a more effective solution. We developed a simple prototype using HTML, CSS, and JavaScript, connected to a database for improved functionality. Randiel took the lead on constructing the web-based system, as I was assigned other tasks. As part of our weekly responsibilities, we thoroughly checked documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and well-organized.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 4 of February</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, we made a bold decision to move away from the spreadsheet and began building a web-based monitoring system, a direction our mentor fully supported as a more effective solution. We developed a simple prototype using HTML, CSS, and JavaScript, connected to a database for improved functionality. Randiel took the lead on constructing the web-based system, as I was assigned other tasks. As part of our weekly responsibilities, we thoroughly checked documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and well-organized.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div id="march" class="blog-content">
-            <div class="blog-post">
-                <div class="gallery">
+        <div id="march" class="blog-content hidden">
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src=".jpg" class="active">
-                        <img src="/api/placeholder/800/400" alt="Garden prep">
+                        <img src="https://via.placeholder.com/800x400?text=Office+Workspace" alt="Office workspace" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Garden+Prep" alt="Garden prep" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 1 of March</h2>
-                    <p class="blog-text">This week, the team made a strategic shift from using a spreadsheet to developing a web-based monitoring system, a move fully endorsed by our mentor as a more efficient solution. My teammate, Randiel, took the lead in building the web-based system, creating a simple prototype using HTML, CSS, and JavaScript, integrated with a database for enhanced functionality. Meanwhile, I was assigned to create PowerPoint presentations for CHED memorandums. Additionally, as part of our weekly duties, we meticulously reviewed documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and well-organized.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 1 of March</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, the team made a strategic shift from using a spreadsheet to developing a web-based monitoring system, a move fully endorsed by our mentor as a more efficient solution. My teammate, Randiel, took the lead in building the web-based system, creating a simple prototype using HTML, CSS, and JavaScript, integrated with a database for enhanced functionality. Meanwhile, I was assigned to create PowerPoint presentations for CHED memorandums. Additionally, as part of our weekly duties, we meticulously reviewed documents for student travel, on-the-job training (OJT), and student activities to ensure they were complete and well-organized.
+                    </p>
                 </div>
             </div>
-            <div class="blog-post">
-                <div class="gallery">
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src=".jpg" class="active">
-                        <img src="/api/placeholder/800/400" alt="Garden prep">
+                        <img src="https://via.placeholder.com/800x400?text=Presentation+Work" alt="Presentation work" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Garden+Prep" alt="Garden prep" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 2 of March</h2>
-                    <p class="blog-text">This week, I was tasked with creating PowerPoint presentations for the graduate school guidelines, ensuring they were clear, professional, and aligned with institutional standards. I also reviewed documents for student travel, on-the-job training (OJT), and student activities, verifying their accuracy and organization to support program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 2 of March</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, I was tasked with creating PowerPoint presentations for the graduate school guidelines, ensuring they were clear, professional, and aligned with institutional standards. I also reviewed documents for student travel, on-the-job training (OJT), and student activities, verifying their accuracy and organization to support program operations.
+                    </p>
                 </div>
             </div>
-            <div class="blog-post">
-                <div class="gallery">
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src=".jpg" class="active">
-                        <img src="/api/placeholder/800/400" alt="Garden prep">
+                        <img src="https://via.placeholder.com/800x400?text=Survey+Design" alt="Survey design" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Garden+Prep" alt="Garden prep" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 3 of March</h2>
-                    <p class="blog-text">This week, I collaborated with Randiel to develop a web-based clientele survey for the USDS services, using HTML, CSS, and JavaScript to create a user-friendly interface that collects feedback, with responses saved directly to a spreadsheet for efficient data management. Additionally, I designed a promotional material (pubmat) featuring a QR code to promote and provide easy access to the survey. As part of my regular duties, I thoroughly reviewed documents for student travel, on-the-job training (OJT), and student activities, ensuring they were accurate and well-organized to support program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 3 of March</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, I collaborated with Randiel to develop a web-based clientele survey for the USDS services, using HTML, CSS, and JavaScript to create a user-friendly interface that collects feedback, with responses saved directly to a spreadsheet for efficient data management. Additionally, I designed a promotional material (pubmat) featuring a QR code to promote and provide easy access to the survey. As part of my regular duties, I thoroughly reviewed documents for student travel, on-the-job training (OJT), and student activities, ensuring they were accurate and well-organized to support program operations.
+                    </p>
                 </div>
             </div>
-            <div class="blog-post">
-                <div class="gallery">
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src=".jpg" class="active">
-                        <img src="/api/placeholder/800/400" alt="Garden prep">
+                        <img src="https://via.placeholder.com/800x400?text=Student+Records" alt="Student records" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Garden+Prep" alt="Garden prep" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 4 of March</h2>
-                    <p class="blog-text">
-This week, We focused on sorting and organizing records of Dean’s and President’s Lister students from all colleges, diligently verifying their academic achievements against institutional criteria to ensure accurate compilation for honors recognition.dditionally, I continued my regular duties, thoroughly reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to facilitate smooth program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 4 of March</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, we focused on sorting and organizing records of Dean’s and President’s Lister students from all colleges, diligently verifying their academic achievements against institutional criteria to ensure accurate compilation for honors recognition. Additionally, I continued my regular duties, thoroughly reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to facilitate smooth program operations.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div id="april" class="blog-content">
-            <div class="blog-post">
-                <div class="gallery">
+        <div id="april" class="blog-content hidden">
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Spring garden" class="active">
-                        <img src="/api/placeholder/800/400" alt="Blooming flowers">
+                        <img src="https://via.placeholder.com/800x400?text=Spring+Garden" alt="Spring garden" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Blooming+Flowers" alt="Blooming flowers" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 1 of April</h2>
-                    <p class="blog-text">This week, I began designing two promotional materials (pubmats): one featuring a QR code for election guidelines and another outlining election schedules, focusing on creating visually appealing and clear designs to enhance accessibility and engagement. Both pubmats are still in progress, with some revisions needed to refine the layout and content for final approval. Additionally, I continued my regular duties, thoroughly reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 1 of April</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, I began designing two promotional materials (pubmats): one featuring a QR code for election guidelines and another outlining election schedules, focusing on creating visually appealing and clear designs to enhance accessibility and engagement. Both pubmats are still in progress, with some revisions needed to refine the layout and content for final approval. Additionally, I continued my regular duties, thoroughly reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support program operations.
+                    </p>
                 </div>
             </div>
-            <div class="blog-post">
-                <div class="gallery">
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Spring garden" class="active">
-                        <img src="/api/placeholder/800/400" alt="Blooming flowers">
+                        <img src="https://via.placeholder.com/800x400?text=Election+Promo" alt="Election promo" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Blooming+Flowers" alt="Blooming flowers" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 2 of April</h2>
-                    <p class="blog-text">This week, I finalized two promotional materials (pubmats): one featuring a QR code for election guidelines and another detailing election schedules, incorporating revisions to ensure clarity, visual appeal, and accessibility, it was posted on the BU OSAS page to promote voter engagement. Additionally, I continued my regular duties, carefully reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support seamless program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 2 of April</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, I finalized two promotional materials (pubmats): one featuring a QR code for election guidelines and another detailing election schedules, incorporating revisions to ensure clarity, visual appeal, and accessibility. It was posted on the BU OSAS page to promote voter engagement. Additionally, I continued my regular duties, carefully reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support seamless program operations.
+                    </p>
                 </div>
             </div>
-            <div class="blog-post">
-                <div class="gallery">
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Spring garden" class="active">
-                        <img src="/api/placeholder/800/400" alt="Blooming flowers">
+                        <img src="https://via.placeholder.com/800x400?text=Convergence+Meeting" alt="Convergence meeting" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Blooming+Flowers" alt="Blooming flowers" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 3 of April</h2>
-                    <p class="blog-text">This week, I began working on creating a presentation layout for the Convergence Meeting of College Student Affairs and Services Coordinators, focusing on designing a professional and visually engaging template to effectively showcase key information. Simultaneously, I collaborated with Randiel to troubleshoot and fix issues with the desktop (PC) in the USDS office, addressing hardware and software problems to restore its functionality. As part of my ongoing responsibilities, I carefully reviewed documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support seamless program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 3 of April</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, I began working on creating a presentation layout for the Convergence Meeting of College Student Affairs and Services Coordinators, focusing on designing a professional and visually engaging template to effectively showcase key information. Simultaneously, I collaborated with Randiel to troubleshoot and fix issues with the desktop (PC) in the USDS office, addressing hardware and software problems to restore its functionality. As part of my ongoing responsibilities, I carefully reviewed documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support seamless program operations.
+                    </p>
                 </div>
             </div>
-            <div class="blog-post">
-                <div class="gallery">
+
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Spring garden" class="active">
-                        <img src="/api/placeholder/800/400" alt="Blooming flowers">
+                        <img src="https://via.placeholder.com/800x400?text=Office+PC+Repair" alt="Office PC repair" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Blooming+Flowers" alt="Blooming flowers" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 4 of April</h2>
-                    <p class="blog-text">This week, I continued refining the presentation layout for the Convergence Meeting of College Student Affairs and Services Coordinators, incorporating feedback to finalize a polished and cohesive design that aligns with the meeting’s objectives. I also worked with Randiel to complete the repairs on the USDS office desktop (PC), successfully resolving all technical issues and ensuring it was fully operational for office use. Additionally, I maintained my regular duties, thoroughly reviewing documents for student travel, on-the-job training (OJT), and student activities, verifying their completeness and organization to facilitate smooth program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 4 of April</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        This week, I continued refining the presentation layout for the Convergence Meeting of College Student Affairs and Services Coordinators, incorporating feedback to finalize a polished and cohesive design that aligns with the meeting’s objectives. I also worked with Randiel to complete the repairs on the USDS office desktop (PC), successfully resolving all technical issues and ensuring it was fully operational for office use. Additionally, I maintained my regular duties, thoroughly reviewing documents for student travel, on-the-job training (OJT), and student activities, verifying their completeness and organization to facilitate smooth program operations.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div id="may" class="blog-content">
-            <div class="blog-post">
-                <div class="gallery">
+        <div id="may" class="blog-content hidden">
+            <div class="blog-post grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="gallery relative">
                     <div class="gallery-container">
-                        <img src="/api/placeholder/800/400" alt="Outdoor activities" class="active">
-                        <img src="/api/placeholder/800/400" alt="Hiking trail">
+                        <img src="https://via.placeholder.com/800x400?text=Certificate+Design" alt="Certificate design" class="active w-full rounded-lg shadow-lg object-cover">
+                        <img src="https://via.placeholder.com/800x400?text=Hiking+Trail" alt="Hiking trail" class="w-full rounded-lg shadow-lg object-cover">
                     </div>
-                    <div class="gallery-nav">
-                        <button class="gallery-btn" onclick="prevImage(this)">←</button>
-                        <button class="gallery-btn" onclick="nextImage(this)">→</button>
+                    <div class="gallery-nav absolute inset-x-0 bottom-4 flex justify-between px-6">
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="prevImage(this)" aria-label="Previous image">←</button>
+                        <button class="gallery-btn bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition" onclick="nextImage(this)" aria-label="Next image">→</button>
                     </div>
-                    <div class="gallery-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
+                    <div class="gallery-dots flex justify-center mt-4">
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer active" aria-label="Image 1"></span>
+                        <span class="dot w-3 h-3 bg-gray-400 rounded-full mx-1 cursor-pointer" aria-label="Image 2"></span>
                     </div>
                 </div>
                 <div class="post-content">
-                    <h2 class="blog-title">Week 1 of May</h2>
-                    <p class="blog-text">On my final week, We are tasked with encoding the President’s Lister students’ information into certificate templates designed in Canva, carefully inputting names and details to ensure accuracy and consistency with institutional standards for official recognition. After completing the templates in Canva, We downloaded them and imported them into Microsoft Publisher for final adjustments and formatting. I then assisted in printing the certificates, verifying their quality and alignment for distribution. Additionally, I continued my regular duties, thoroughly reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support seamless program operations.</p>
+                    <h2 class="blog-title text-2xl font-semibold text-gray-800 mb-4">Week 1 of May</h2>
+                    <p class="blog-text text-gray-600 leading-relaxed">
+                        On my final week, we were tasked with encoding the President’s Lister students’ information into certificate templates designed in Canva, carefully inputting names and details to ensure accuracy and consistency with institutional standards for official recognition. After completing the templates in Canva, we downloaded them and imported them into Microsoft Publisher for final adjustments and formatting. I then assisted in printing the certificates, verifying their quality and alignment for distribution. Additionally, I continued my regular duties, thoroughly reviewing documents related to student travel, on-the-job training (OJT), and student activities, ensuring their accuracy and organization to support seamless program operations.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>Created by Justin Jay Q. Bañas</p>
+    <footer class="bg-gray-900 text-white text-center py-6">
+        <p class="text-sm">Created by Justin Jay Q. Bañas</p>
     </footer>
 
     <script>
         function showMonth(month) {
-            // Hide all content
-            document.querySelectorAll('.blog-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Show selected month
-            document.getElementById(month).classList.add('active');
-            
-            // Update button states
-            document.querySelectorAll('.month-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            try {
+                const content = document.getElementById(month);
+                if (!content) throw new Error(`No content found for month: ${month}`);
+
+                document.querySelectorAll('.blog-content').forEach(c => {
+                    c.classList.add('hidden');
+                    c.classList.remove('active');
+                });
+                content.classList.remove('hidden');
+                content.classList.add('active');
+
+                document.querySelectorAll('.month-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-700');
+                    btn.classList.add('bg-blue-600');
+                });
+                const activeBtn = document.querySelector(`[onclick="showMonth('${month}')"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active', 'bg-blue-700');
+                }
+            } catch (error) {
+                console.error('Error in showMonth:', error);
+            }
         }
 
         function nextImage(btn) {
-            const gallery = btn.closest('.gallery');
-            const images = gallery.querySelectorAll('img');
-            const dots = gallery.querySelectorAll('.dot');
-            let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
-            
-            images[activeIndex].classList.remove('active');
-            dots[activeIndex].classList.remove('active');
-            
-            activeIndex = (activeIndex + 1) % images.length;
-            
-            images[activeIndex].classList.add('active');
-            dots[activeIndex].classList.add('active');
+            try {
+                const gallery = btn.closest('.gallery');
+                if (!gallery) throw new Error('Gallery not found');
+
+                const images = gallery.querySelectorAll('img');
+                const dots = gallery.querySelectorAll('.dot');
+                if (!images.length || !dots.length) throw new Error('No images or dots found');
+
+                let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+                if (activeIndex === -1) activeIndex = 0;
+
+                images[activeIndex].classList.remove('active');
+                dots[activeIndex].classList.remove('active', 'bg-blue-500');
+                dots[activeIndex].classList.add('bg-gray-400');
+
+                activeIndex = (activeIndex + 1) % images.length;
+
+                images[activeIndex].classList.add('active');
+                dots[activeIndex].classList.add('active', 'bg-blue-500');
+                dots[activeIndex].classList.remove('bg-gray-400');
+            } catch (error) {
+                console.error('Error in nextImage:', error);
+            }
         }
 
         function prevImage(btn) {
-            const gallery = btn.closest('.gallery');
-            const images = gallery.querySelectorAll('img');
-            const dots = gallery.querySelectorAll('.dot');
-            let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
-            
-            images[activeIndex].classList.remove('active');
-            dots[activeIndex].classList.remove('active');
-            
-            activeIndex = (activeIndex - 1 + images.length) % images.length;
-            
-            images[activeIndex].classList.add('active');
-            dots[activeIndex].classList.add('active');
+            try {
+                const gallery = btn.closest('.gallery');
+                if (!gallery) throw new Error('Gallery not found');
+
+                const images = gallery.querySelectorAll('img');
+                const dots = gallery.querySelectorAll('.dot');
+                if (!images.length || !dots.length) throw new Error('No images or dots found');
+
+                let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+                if (activeIndex === -1) activeIndex = 0;
+
+                images[activeIndex].classList.remove('active');
+                dots[activeIndex].classList.remove('active', 'bg-blue-500');
+                dots[activeIndex].classList.add('bg-gray-400');
+
+                activeIndex = (activeIndex - 1 + images.length) % images.length;
+
+                images[activeIndex].classList.add('active');
+                dots[activeIndex].classList.add('active', 'bg-blue-500');
+                dots[activeIndex].classList.remove('bg-gray-400');
+            } catch (error) {
+                console.error('Error in prevImage:', error);
+            }
         }
 
-        // Add click handlers to dots
         document.querySelectorAll('.gallery-dots').forEach(dotContainer => {
             const dots = dotContainer.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
-                    const gallery = dot.closest('.gallery');
-                    const images = gallery.querySelectorAll('img');
-                    const allDots = gallery.querySelectorAll('.dot');
-                    
-                    images.forEach(img => img.classList.remove('active'));
-                    allDots.forEach(d => d.classList.remove('active'));
-                    
-                    images[index].classList.add('active');
-                    dot.classList.add('active');
+                    try {
+                        const gallery = dot.closest('.gallery');
+                        if (!gallery) throw new Error('Gallery not found');
+
+                        const images = gallery.querySelectorAll('img');
+                        const allDots = gallery.querySelectorAll('.dot');
+                        if (!images.length || !allDots.length) throw new Error('No images or dots found');
+
+                        images.forEach(img => img.classList.remove('active'));
+                        allDots.forEach(d => {
+                            d.classList.remove('active', 'bg-blue-500');
+                            d.classList.add('bg-gray-400');
+                        });
+
+                        images[index].classList.add('active');
+                        dot.classList.add('active', 'bg-blue-500');
+                        dot.classList.remove('bg-gray-400');
+                    } catch (error) {
+                        console.error('Error in dot click handler:', error);
+                    }
                 });
+            });
+        });
+
+        // Keyboard navigation for galleries
+        document.querySelectorAll('.gallery').forEach(gallery => {
+            gallery.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    const prevBtn = gallery.querySelector('.gallery-btn[aria-label="Previous image"]');
+                    if (prevBtn) prevBtn.click();
+                } else if (e.key === 'ArrowRight') {
+                    const nextBtn = gallery.querySelector('.gallery-btn[aria-label="Next image"]');
+                    if (nextBtn) nextBtn.click();
+                }
             });
         });
     </script>
